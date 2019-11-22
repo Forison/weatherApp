@@ -1,8 +1,8 @@
 import './style.css';
+import homepage from './component/homepage';
 
 const main = () => {
-	let element = document.createElement('h1');
-	element.innerHTML = 'hello world';
-	return element;
-}
-document.body.appendChild(main());
+	homepage();
+};
+
+main();
