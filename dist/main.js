@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/style.css?./node_modules/css-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"main{\\n  border-radius: 50px;\\n  height: 580px;\\n  padding: 40px 0px 10px 0px;\\n}\\n.mainTop{\\n  background: red;\\n  border-top-left-radius: 50px;\\n  border-top-right-radius: 50px;\\n  height: 40%;\\n}\\n.mainMid{\\n  background: gold;\\n  height: 25%;\\n}\\n.mainBot{\\n  background: green;\\n  border-bottom-left-radius: 50px;\\n  border-bottom-right-radius: 50px;\\n  height: 35%;\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/style.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -121,6 +121,42 @@ eval("\n\nvar stylesInDom = {};\n\nvar isOldIE = function isOldIE() {\n  var mem
 
 /***/ }),
 
+/***/ "./src/component/dom/homepage.js":
+/*!***************************************!*\
+  !*** ./src/component/dom/homepage.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return homepage; });\nconst homepage = () => {\n\tconst bodyWrap = document.createElement('div');\n\tbodyWrap.classList.add('container-fluid');\n\n\tconst bodyRow = document.createElement('div');\n\tbodyWrap.appendChild(bodyRow);\n\tbodyRow.classList.add('row');\n\n\tconst main = document.createElement('main');\n\tmain.classList.add('col-md-4', 'mx-auto', 'shadow-lg', 'mt-3');\n\tbodyRow.appendChild(main);\n\n\tconst mainTop = document.createElement('div');\n\tmainTop.classList.add('mainTop');\n\tmain.appendChild(mainTop);\n\n\tconst mainMid = document.createElement('div');\n\tmainMid.classList.add('mainMid');\n\tmain.appendChild(mainMid);\n\tconst mainBot = document.createElement('div');\n\tmainBot.classList.add('mainBot');\n\tmain.appendChild(mainBot);\n\n\treturn bodyWrap;\n};\ndocument.body.appendChild(homepage());\n\n\n//# sourceURL=webpack:///./src/component/dom/homepage.js?");
+
+/***/ }),
+
+/***/ "./src/component/fetchmain.js":
+/*!************************************!*\
+  !*** ./src/component/fetchmain.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return fetchData; });\nconst fetchData = async () => {\n\tconst url = \"http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&APPID=ccf997c34097cddfadc5cdaead93a77a\"\n\tconst response = await fetch(url, { mode: 'cors' });\n\tconst dataObj = await response.json();\n\tconsole.log(dataObj);\n}\n\n\n//# sourceURL=webpack:///./src/component/fetchmain.js?");
+
+/***/ }),
+
+/***/ "./src/component/weather.js":
+/*!**********************************!*\
+  !*** ./src/component/weather.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return myWeather; });\n/* harmony import */ var _fetchmain__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./fetchmain */ \"./src/component/fetchmain.js\");\n\nconst myWeather = async () => {\n\n};\n\n\n//# sourceURL=webpack:///./src/component/weather.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -129,7 +165,7 @@ eval("\n\nvar stylesInDom = {};\n\nvar isOldIE = function isOldIE() {\n  var mem
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_0__);\n\n\nconst main = () => {\n\tlet element = document.createElement('h1');\n\telement.innerHTML = 'hello world';\n\treturn element;\n}\ndocument.body.appendChild(main());\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _component_dom_homepage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./component/dom/homepage */ \"./src/component/dom/homepage.js\");\n/* harmony import */ var _component_weather__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./component/weather */ \"./src/component/weather.js\");\n\n\n\n\nconst main = () => {\n\tObject(_component_dom_homepage__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n\tObject(_component_weather__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\n};\n\nmain();\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 

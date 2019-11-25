@@ -1,13 +1,12 @@
-import anime from 'animejs';
+// import anime from 'animejs';
 
-const animator = () => {
-	return anime({
-		targets: '.mainTop',
-		translateX: 250,
-		rotate: '1turn',
-		backgroundColor: '#FFF',
-		duration: 800
-	});
-};
+// const animator = () => {
+// 	return anime({
+// 		targets: '.mainTop',
+// 		rotate: '2turn',
+// 		duration: 20000,
+// 		easing: 'linear'
+// 	});
+// };
 
-export { animator as default };
+// export { animator as default };

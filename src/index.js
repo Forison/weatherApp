@@ -1,10 +1,10 @@
 import './style.css';
-import homepage from './component/homepage';
-import animator from './component/animator';
+import homepage from './component/dom/homepage';
+import myWeather from './component/weather';
 
 const main = () => {
 	homepage();
-	animator();
+	myWeather();
 };
 
 main();
