@@ -10,15 +10,17 @@ const searcher = (() => {
 			throw (error);
 		}
 	};
-	const byLocDefault = async (location) => {
+	const byLocDefault = async () => {
 		try {
-			const url = `http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=ccf997c34097cddfadc5cdaead93a77a`;
+			let locator = 'https://extreme-ip-lookup.com/json/';
+			const locatorObj = await fetchData(locator);
+			const url = `http://api.openweathermap.org/data/2.5/weather?q=${locatorObj.country}&APPID=ccf997c34097cddfadc5cdaead93a77a`;
 			const data = await fetchData(url);
 			return data;
 		} catch (error) {
 			throw (error);
 		}
-	}
+	};
 	return { byLoc, byLocDefault };
 })();
 export { searcher as default };
