@@ -4,7 +4,7 @@ const fetchData = async (url) => {
 		const dataObj = await response.json();
 		return dataObj;
 	} catch (error) {
-		throw (error)
+		throw (error);
 	}
-}
-export { fetchData as default }
+};
+export { fetchData as default };
