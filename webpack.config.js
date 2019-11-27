@@ -1,3 +1,4 @@
+/*eslint import/no-unresolved: 2*/
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
@@ -36,8 +37,8 @@ module.exports = {
 				use: [
 					'html-loader',
 				],
-			}
-		]
+			},
+		],
 	},
 	devServer: {
 		contentBase: './dist',
@@ -46,7 +47,7 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			title: 'Output Management',
 			template: './src/index.html',
-			filename: './index.html'
+			filename: './index.html',
 		}),
-	]
+	],
 };
