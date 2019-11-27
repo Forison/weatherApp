@@ -74,7 +74,7 @@ const dom = (() => {
 		const wind = document.createElement('h3');
 		wind.classList.add('pt-1');
 		let rP;
-		data.main.humidity > 40 ? rP = 'High' : rP = 'Low';
+		data.main.humidity > 50 ? rP = 'High' : rP = 'Low';
 		rainProb.innerHTML = `RAIN PROBABILITY: ${rP}`;
 		wind.innerHTML = `WIND: ${data.wind.speed}`;
 		humidity.innerHTML = `HUMIDITY: ${data.main.humidity}`;
