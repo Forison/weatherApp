@@ -127,7 +127,7 @@ const dom = (() => {
 		input.setAttribute('placeholder', 'Search By Country');
 		mainBot.appendChild(input);
 
-		input.addEventListener("keyup", async (e) => {
+		input.addEventListener("keyup", (async (e) => {
 			if (event.keyCode === 13) {
 				e.preventDefault();
 				let location = input.value;
@@ -135,7 +135,7 @@ const dom = (() => {
 				homepage(await searcher.byLoc(location));
 			}
 
-		});
+		}));
 
 		document.body.appendChild(bodyWrap);
 		return bodyWrap;
