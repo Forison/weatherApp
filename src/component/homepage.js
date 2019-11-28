@@ -4,7 +4,6 @@ import FewClouds from './images/fewClouds.gif';
 import Overcast from './images/overcast.gif';
 import Rainy from './images/rainy.gif';
 import Broken from './images/broken.gif';
-import Thunder from './images/thunder.gif';
 import searcher from './searches';
 const dom = (() => {
 	const homepage = (data) => {
@@ -119,7 +118,7 @@ const dom = (() => {
 		const bottomImage = document.createElement('img');
 
 		colOne.appendChild(bottomImage);
-		colOne.classList.add('col-8', 'p-0', 'shadow-lg', 'section','mx-auto');
+		colOne.classList.add('col-8', 'p-0', 'shadow-lg', 'section', 'mx-auto');
 		cloudRow.appendChild(colOne);
 
 		const input = document.createElement('input');
@@ -131,8 +130,12 @@ const dom = (() => {
 			if (event.keyCode === 13) {
 				e.preventDefault();
 				let location = input.value;
-				bodyWrap.style.display = 'none';
-				homepage(await searcher.byLoc(location));
+				if (location === "") {
+					alert("field cannot be empty");
+				} else {
+					bodyWrap.style.display = 'none';
+					homepage(await searcher.byLoc(location));
+				}
 			}
 
 		}));

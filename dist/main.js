@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"main{\\n  border-radius: 50px;\\n  height: 580px;\\n  padding: 40px 0px 10px 0px;\\n}\\n.mainTop{\\n  background: red;\\n  border-top-left-radius: 50px;\\n  border-top-right-radius: 50px;\\n  height: 40%;\\n}\\n.mainMid{\\n  background: gold;\\n  height: 25%;\\n}\\n.mainBot{\\n  background: green;\\n  border-bottom-left-radius: 50px;\\n  border-bottom-right-radius: 50px;\\n  height: 35%;\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/style.css?./node_modules/css-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Imports\nvar getUrl = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/getUrl.js */ \"./node_modules/css-loader/dist/runtime/getUrl.js\");\nvar ___CSS_LOADER_URL___0___ = getUrl(__webpack_require__(/*! ./component/images/globe.png */ \"./src/component/images/globe.png\"));\n// Module\nexports.push([module.i, \"body{\\n  background-image: linear-gradient(#11033a,#fff,#11033a);\\n  font-family: 'Roboto', sans-serif;\\n  margin: 0;\\n  padding: 0;\\n}\\nmain{\\n  background: #f1efef;\\n  border-radius: 50px;\\n  height: 600px;\\n  padding: 10px 0px 10px 0px;\\n}\\n.mainTop{\\n  background: #d1cfda;\\n  background-image: url(\" + ___CSS_LOADER_URL___0___ + \");\\n  background-position: center;\\n  background-repeat: no-repeat;\\n  background-size: cover;\\n  border-top-left-radius: 50px;\\n  border-top-right-radius: 50px;\\n  height: 35%;\\n  padding: 10px;\\n}\\n.mainMid{\\n  background: #d2cfdf;\\n  height: 25%;\\n}\\n.mainMid:hover{\\n  background: #d2cfdf;\\n  height: 26%;\\n  box-shadow: 0px 35px 20px #777;\\n}\\n.mainBot{\\n  border-bottom-left-radius: 50px;\\n  border-bottom-right-radius: 50px;\\n  height: 40%;\\n}\\n.input-width{\\n  width: 60%;\\n}\\n.section{\\n  height: 150px;\\n}\\n.cont-width{\\n  margin-bottom: 10px;\\n  height: 150px;\\n}\\n.left{\\n  color: #2d00cf;\\n  height: 100px;\\n  font-weight: 700;\\n  width: 180px;\\n}\\n.right{\\n  bottom: 62px;\\n  color: #2d00cf;\\n  font-weight: 700;\\n  height: 155px;\\n  left: 5px;\\n  position: relative;\\n  width: 180px;\\n}\\nh2{\\n  color: #2d00cf;\\n  font-size: 15px;\\n  font-weight: bolder;\\n}\\nh3{\\n  color: #2d00cf;\\n  font-size: 20px;\\n  font-weight: bolder;\\n}\\n.container-fluid{\\n  display: 'none';\\n}\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/style.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -109,6 +109,29 @@ eval("\n\n/*\n  MIT License http://www.opensource.org/licenses/mit-license.php\n
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/runtime/getUrl.js":
+/*!********************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/getUrl.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nmodule.exports = function (url, needQuotes) {\n  // eslint-disable-next-line no-underscore-dangle, no-param-reassign\n  url = url.__esModule ? url.default : url;\n\n  if (typeof url !== 'string') {\n    return url;\n  } // If url is already wrapped in quotes, remove them\n\n\n  if (/^['\"].*['\"]$/.test(url)) {\n    // eslint-disable-next-line no-param-reassign\n    url = url.slice(1, -1);\n  } // Should url be wrapped?\n  // See https://drafts.csswg.org/css-values-3/#urls\n\n\n  if (/[\"'() \\t\\n]/.test(url) || needQuotes) {\n    return \"\\\"\".concat(url.replace(/\"/g, '\\\\\"').replace(/\\n/g, '\\\\n'), \"\\\"\");\n  }\n\n  return url;\n};\n\n//# sourceURL=webpack:///./node_modules/css-loader/dist/runtime/getUrl.js?");
+
+/***/ }),
+
+/***/ "./node_modules/process/browser.js":
+/*!*****************************************!*\
+  !*** ./node_modules/process/browser.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// shim for using process in browser\nvar process = module.exports = {};\n\n// cached from whatever global is present so that test runners that stub it\n// don't break things.  But we need to wrap it in a try catch in case it is\n// wrapped in strict mode code which doesn't define any globals.  It's inside a\n// function because try/catches deoptimize in certain engines.\n\nvar cachedSetTimeout;\nvar cachedClearTimeout;\n\nfunction defaultSetTimout() {\n    throw new Error('setTimeout has not been defined');\n}\nfunction defaultClearTimeout () {\n    throw new Error('clearTimeout has not been defined');\n}\n(function () {\n    try {\n        if (typeof setTimeout === 'function') {\n            cachedSetTimeout = setTimeout;\n        } else {\n            cachedSetTimeout = defaultSetTimout;\n        }\n    } catch (e) {\n        cachedSetTimeout = defaultSetTimout;\n    }\n    try {\n        if (typeof clearTimeout === 'function') {\n            cachedClearTimeout = clearTimeout;\n        } else {\n            cachedClearTimeout = defaultClearTimeout;\n        }\n    } catch (e) {\n        cachedClearTimeout = defaultClearTimeout;\n    }\n} ())\nfunction runTimeout(fun) {\n    if (cachedSetTimeout === setTimeout) {\n        //normal enviroments in sane situations\n        return setTimeout(fun, 0);\n    }\n    // if setTimeout wasn't available but was latter defined\n    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {\n        cachedSetTimeout = setTimeout;\n        return setTimeout(fun, 0);\n    }\n    try {\n        // when when somebody has screwed with setTimeout but no I.E. maddness\n        return cachedSetTimeout(fun, 0);\n    } catch(e){\n        try {\n            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally\n            return cachedSetTimeout.call(null, fun, 0);\n        } catch(e){\n            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error\n            return cachedSetTimeout.call(this, fun, 0);\n        }\n    }\n\n\n}\nfunction runClearTimeout(marker) {\n    if (cachedClearTimeout === clearTimeout) {\n        //normal enviroments in sane situations\n        return clearTimeout(marker);\n    }\n    // if clearTimeout wasn't available but was latter defined\n    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {\n        cachedClearTimeout = clearTimeout;\n        return clearTimeout(marker);\n    }\n    try {\n        // when when somebody has screwed with setTimeout but no I.E. maddness\n        return cachedClearTimeout(marker);\n    } catch (e){\n        try {\n            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally\n            return cachedClearTimeout.call(null, marker);\n        } catch (e){\n            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.\n            // Some versions of I.E. have different rules for clearTimeout vs setTimeout\n            return cachedClearTimeout.call(this, marker);\n        }\n    }\n\n\n\n}\nvar queue = [];\nvar draining = false;\nvar currentQueue;\nvar queueIndex = -1;\n\nfunction cleanUpNextTick() {\n    if (!draining || !currentQueue) {\n        return;\n    }\n    draining = false;\n    if (currentQueue.length) {\n        queue = currentQueue.concat(queue);\n    } else {\n        queueIndex = -1;\n    }\n    if (queue.length) {\n        drainQueue();\n    }\n}\n\nfunction drainQueue() {\n    if (draining) {\n        return;\n    }\n    var timeout = runTimeout(cleanUpNextTick);\n    draining = true;\n\n    var len = queue.length;\n    while(len) {\n        currentQueue = queue;\n        queue = [];\n        while (++queueIndex < len) {\n            if (currentQueue) {\n                currentQueue[queueIndex].run();\n            }\n        }\n        queueIndex = -1;\n        len = queue.length;\n    }\n    currentQueue = null;\n    draining = false;\n    runClearTimeout(timeout);\n}\n\nprocess.nextTick = function (fun) {\n    var args = new Array(arguments.length - 1);\n    if (arguments.length > 1) {\n        for (var i = 1; i < arguments.length; i++) {\n            args[i - 1] = arguments[i];\n        }\n    }\n    queue.push(new Item(fun, args));\n    if (queue.length === 1 && !draining) {\n        runTimeout(drainQueue);\n    }\n};\n\n// v8 likes predictible objects\nfunction Item(fun, array) {\n    this.fun = fun;\n    this.array = array;\n}\nItem.prototype.run = function () {\n    this.fun.apply(null, this.array);\n};\nprocess.title = 'browser';\nprocess.browser = true;\nprocess.env = {};\nprocess.argv = [];\nprocess.version = ''; // empty string to avoid regexp issues\nprocess.versions = {};\n\nfunction noop() {}\n\nprocess.on = noop;\nprocess.addListener = noop;\nprocess.once = noop;\nprocess.off = noop;\nprocess.removeListener = noop;\nprocess.removeAllListeners = noop;\nprocess.emit = noop;\nprocess.prependListener = noop;\nprocess.prependOnceListener = noop;\n\nprocess.listeners = function (name) { return [] }\n\nprocess.binding = function (name) {\n    throw new Error('process.binding is not supported');\n};\n\nprocess.cwd = function () { return '/' };\nprocess.chdir = function (dir) {\n    throw new Error('process.chdir is not supported');\n};\nprocess.umask = function() { return 0; };\n\n\n//# sourceURL=webpack:///./node_modules/process/browser.js?");
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
 /*!****************************************************************************!*\
   !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
@@ -121,27 +144,116 @@ eval("\n\nvar stylesInDom = {};\n\nvar isOldIE = function isOldIE() {\n  var mem
 
 /***/ }),
 
-/***/ "./src/component/dom/homepage.js":
-/*!***************************************!*\
-  !*** ./src/component/dom/homepage.js ***!
-  \***************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return homepage; });\nconst homepage = () => {\n\tconst bodyWrap = document.createElement('div');\n\tbodyWrap.classList.add('container-fluid');\n\n\tconst bodyRow = document.createElement('div');\n\tbodyWrap.appendChild(bodyRow);\n\tbodyRow.classList.add('row');\n\n\tconst main = document.createElement('main');\n\tmain.classList.add('col-md-4', 'mx-auto', 'shadow-lg', 'mt-3');\n\tbodyRow.appendChild(main);\n\n\tconst mainTop = document.createElement('div');\n\tmainTop.classList.add('mainTop');\n\tmain.appendChild(mainTop);\n\n\tconst mainMid = document.createElement('div');\n\tmainMid.classList.add('mainMid');\n\tmain.appendChild(mainMid);\n\tconst mainBot = document.createElement('div');\n\tmainBot.classList.add('mainBot');\n\tmain.appendChild(mainBot);\n\n\treturn bodyWrap;\n};\ndocument.body.appendChild(homepage());\n\n\n//# sourceURL=webpack:///./src/component/dom/homepage.js?");
-
-/***/ }),
-
-/***/ "./src/component/fetchmain.js":
+/***/ "./src/component/fetchMain.js":
 /*!************************************!*\
-  !*** ./src/component/fetchmain.js ***!
+  !*** ./src/component/fetchMain.js ***!
   \************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return fetchData; });\nconst fetchData = async () => {\n\tconst url = \"http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&APPID=ccf997c34097cddfadc5cdaead93a77a\"\n\tconst response = await fetch(url, { mode: 'cors' });\n\tconst dataObj = await response.json();\n\tconsole.log(dataObj);\n}\n\n\n//# sourceURL=webpack:///./src/component/fetchmain.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return fetchData; });\nconst fetchData = (async (url) => {\n\ttry {\n\t\tconst response = await fetch(url, { mode: 'cors' });\n\t\tconst dataObj = await response.json();\n\t\treturn dataObj;\n\t} catch (error) {\n\t\tthrow (error);\n\t}\n});\n\n\n//# sourceURL=webpack:///./src/component/fetchMain.js?");
+
+/***/ }),
+
+/***/ "./src/component/homepage.js":
+/*!***********************************!*\
+  !*** ./src/component/homepage.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return dom; });\n/* harmony import */ var _images_globe2_gif__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./images/globe2.gif */ \"./src/component/images/globe2.gif\");\n/* harmony import */ var _images_globe2_gif__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_images_globe2_gif__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _images_clear_gif__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./images/clear.gif */ \"./src/component/images/clear.gif\");\n/* harmony import */ var _images_clear_gif__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_images_clear_gif__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _images_fewClouds_gif__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./images/fewClouds.gif */ \"./src/component/images/fewClouds.gif\");\n/* harmony import */ var _images_fewClouds_gif__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_images_fewClouds_gif__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _images_overcast_gif__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./images/overcast.gif */ \"./src/component/images/overcast.gif\");\n/* harmony import */ var _images_overcast_gif__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_images_overcast_gif__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _images_rainy_gif__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./images/rainy.gif */ \"./src/component/images/rainy.gif\");\n/* harmony import */ var _images_rainy_gif__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_images_rainy_gif__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var _images_broken_gif__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./images/broken.gif */ \"./src/component/images/broken.gif\");\n/* harmony import */ var _images_broken_gif__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_images_broken_gif__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var _searches__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./searches */ \"./src/component/searches.js\");\n\n\n\n\n\n\n\nconst dom = (() => {\n\tconst homepage = (data) => {\n\t\tconst bodyWrap = document.createElement('div');\n\t\tbodyWrap.classList.add('container-fluid');\n\n\t\tconst bodyRow = document.createElement('div');\n\t\tbodyWrap.appendChild(bodyRow);\n\t\tbodyRow.classList.add('row');\n\n\t\tconst mainCont = document.createElement('main');\n\t\tmainCont.classList.add('col-md-4', 'mx-auto', 'shadow-lg', 'mt-3');\n\t\tbodyRow.appendChild(mainCont);\n\n\t\tconst mainTop = document.createElement('div');\n\t\tmainTop.classList.add('mainTop');\n\t\tmainCont.appendChild(mainTop);\n\t\tconst mainTopLeft = document.createElement('div');\n\t\tconst mainTopRight = document.createElement('div');\n\t\tmainTopLeft.classList.add('ml-auto', 'left');\n\t\tmainTopRight.classList.add('mr-auto', 'right');\n\t\tmainTop.appendChild(mainTopLeft);\n\t\tmainTop.appendChild(mainTopRight);\n\n\t\tconst topTitle = document.createElement('h1');\n\t\ttopTitle.classList.add('text-center');\n\t\tconst topTitle2 = document.createElement('h2');\n\t\ttopTitle2.classList.add('text-center');\n\t\tconst topTitle3 = document.createElement('h2');\n\t\ttopTitle3.classList.add('text-center');\n\n\t\ttopTitle.innerHTML = `${data.name}`;\n\t\ttopTitle2.innerHTML = `${data.main.temp} &#8451`;\n\t\ttopTitle3.innerHTML = `${data.weather[0].description}`;\n\t\tmainTopRight.appendChild(topTitle);\n\t\tmainTopRight.appendChild(topTitle2);\n\t\tmainTopRight.appendChild(topTitle3);\n\n\t\tconst leftTitle = document.createElement('h3');\n\t\tleftTitle.classList.add('text-center');\n\t\tconst leftTitle2 = document.createElement('h4');\n\t\tleftTitle2.classList.add('text-center');\n\t\tconst leftTitle3 = document.createElement('h5');\n\t\tleftTitle3.classList.add('text-center');\n\n\t\tconst today = new Date();\n\t\tconst dayOfWeek = [\"Sunday\", \"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\", \"Saturday\"]\n\t\tconst day = today.getUTCDay();\n\t\tconst mm = today.getDate();\n\t\tconst dd = today.getMonth();\n\t\tconst yyyy = today.getFullYear();\n\n\t\tleftTitle.innerHTML = `${dayOfWeek[day]}`;\n\t\tleftTitle2.innerHTML = `${mm}-${dd}-${yyyy}`;\n\t\tleftTitle3.innerHTML = `${data.name.slice(0, 3)}`;\n\t\tmainTopLeft.appendChild(leftTitle);\n\t\tmainTopLeft.appendChild(leftTitle2);\n\t\tmainTopLeft.appendChild(leftTitle3);\n\n\t\tconst mainMid = document.createElement('div');\n\t\tconst wrap1 = document.createElement('div');\n\t\tconst wrap2 = document.createElement('div');\n\t\tconst rainProb = document.createElement('h3');\n\t\trainProb.classList.add('pt-1');\n\t\tconst humidity = document.createElement('h3');\n\t\thumidity.classList.add('pt-1');\n\t\tconst wind = document.createElement('h3');\n\t\twind.classList.add('pt-1');\n\t\tlet rP;\n\t\tdata.main.humidity > 50 ? rP = 'High' : rP = 'Low';\n\t\trainProb.innerHTML = `RAIN PROBABILITY: ${rP}`;\n\t\twind.innerHTML = `WIND: ${data.wind.speed}`;\n\t\thumidity.innerHTML = `HUMIDITY: ${data.main.humidity}`;\n\n\t\twrap1.appendChild(wind);\n\t\twrap1.appendChild(humidity);\n\t\twrap1.appendChild(rainProb);\n\t\tmainMid.appendChild(wrap1);\n\t\tmainMid.appendChild(wrap2);\n\t\tmainMid.classList.add('mainMid', 'pl-4', 'pt-1', 'shadow-lg');\n\n\t\tmainCont.appendChild(mainMid);\n\t\tconst mainBot = document.createElement('div');\n\t\tmainBot.classList.add('mainBot');\n\t\tmainCont.appendChild(mainBot);\n\n\t\tconst cloudCont = new Image();\n\t\tcloudCont.classList.add('container', 'cont-width');\n\t\tif (data.weather[0].description === 'clear sky') {\n\t\t\tcloudCont.src = _images_clear_gif__WEBPACK_IMPORTED_MODULE_1___default.a;\n\t\t} else if (data.weather[0].description === 'broken clouds') {\n\t\t\tcloudCont.src = _images_broken_gif__WEBPACK_IMPORTED_MODULE_5___default.a;\n\t\t} else if (data.weather[0].description === 'overcast clouds') {\n\t\t\tcloudCont.src = _images_overcast_gif__WEBPACK_IMPORTED_MODULE_3___default.a;\n\t\t} else if (data.weather[0].description === 'light intensity shower') {\n\t\t\tcloudCont.src = _images_globe2_gif__WEBPACK_IMPORTED_MODULE_0___default.a;\n\t\t} else if (data.weather[0].description === 'light intensity shower rain') {\n\t\t\tcloudCont.src = _images_rainy_gif__WEBPACK_IMPORTED_MODULE_4___default.a;\n\t\t} else if (data.weather[0].description === 'scattered clouds') {\n\t\t\tcloudCont.src = _images_fewClouds_gif__WEBPACK_IMPORTED_MODULE_2___default.a;\n\t\t} else {\n\t\t\tcloudCont.src = _images_globe2_gif__WEBPACK_IMPORTED_MODULE_0___default.a;\n\t\t}\n\n\t\tmainBot.appendChild(cloudCont);\n\n\t\tconst cloudRow = document.createElement('div');\n\t\tcloudRow.classList.add('row', 'mt-2', 'mb-2');\n\t\tcloudCont.appendChild(cloudRow);\n\n\t\tconst colOne = document.createElement('div');\n\t\tconst bottomImage = document.createElement('img');\n\n\t\tcolOne.appendChild(bottomImage);\n\t\tcolOne.classList.add('col-8', 'p-0', 'shadow-lg', 'section', 'mx-auto');\n\t\tcloudRow.appendChild(colOne);\n\n\t\tconst input = document.createElement('input');\n\t\tinput.classList.add('form-control', 'input-width', 'mx-auto');\n\t\tinput.setAttribute('placeholder', 'Search By Country');\n\t\tmainBot.appendChild(input);\n\n\t\tinput.addEventListener(\"keyup\", (async (e) => {\n\t\t\tif (event.keyCode === 13) {\n\t\t\t\te.preventDefault();\n\t\t\t\tlet location = input.value;\n\t\t\t\tif (location === \"\") {\n\t\t\t\t\talert(\"field cannot be empty\");\n\t\t\t\t} else {\n\t\t\t\t\tbodyWrap.style.display = 'none';\n\t\t\t\t\thomepage(await _searches__WEBPACK_IMPORTED_MODULE_6__[\"default\"].byLoc(location));\n\t\t\t\t}\n\t\t\t}\n\n\t\t}));\n\n\t\tdocument.body.appendChild(bodyWrap);\n\t\treturn bodyWrap;\n\t};\n\n\n\treturn { homepage }\n\n})();\n\n\n\n//# sourceURL=webpack:///./src/component/homepage.js?");
+
+/***/ }),
+
+/***/ "./src/component/images/broken.gif":
+/*!*****************************************!*\
+  !*** ./src/component/images/broken.gif ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"faa3c7867a8f4ca7e5ae6326aa09f673.gif\";\n\n//# sourceURL=webpack:///./src/component/images/broken.gif?");
+
+/***/ }),
+
+/***/ "./src/component/images/clear.gif":
+/*!****************************************!*\
+  !*** ./src/component/images/clear.gif ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"e5a8280dd6d6da08b228f558046a1198.gif\";\n\n//# sourceURL=webpack:///./src/component/images/clear.gif?");
+
+/***/ }),
+
+/***/ "./src/component/images/fewClouds.gif":
+/*!********************************************!*\
+  !*** ./src/component/images/fewClouds.gif ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"002861aa54c41d4db2cb165895949ca0.gif\";\n\n//# sourceURL=webpack:///./src/component/images/fewClouds.gif?");
+
+/***/ }),
+
+/***/ "./src/component/images/globe.png":
+/*!****************************************!*\
+  !*** ./src/component/images/globe.png ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"590b6c27d7a921658fe52abdd034b597.png\";\n\n//# sourceURL=webpack:///./src/component/images/globe.png?");
+
+/***/ }),
+
+/***/ "./src/component/images/globe2.gif":
+/*!*****************************************!*\
+  !*** ./src/component/images/globe2.gif ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"fe409ff9410b8a2c8d896cae928172f3.gif\";\n\n//# sourceURL=webpack:///./src/component/images/globe2.gif?");
+
+/***/ }),
+
+/***/ "./src/component/images/overcast.gif":
+/*!*******************************************!*\
+  !*** ./src/component/images/overcast.gif ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"d81f58596ed08fe828fab6c2658ffb6e.gif\";\n\n//# sourceURL=webpack:///./src/component/images/overcast.gif?");
+
+/***/ }),
+
+/***/ "./src/component/images/rainy.gif":
+/*!****************************************!*\
+  !*** ./src/component/images/rainy.gif ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"ac8539997b1cdd66ef51e945cdf5dd89.gif\";\n\n//# sourceURL=webpack:///./src/component/images/rainy.gif?");
+
+/***/ }),
+
+/***/ "./src/component/searches.js":
+/*!***********************************!*\
+  !*** ./src/component/searches.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return searcher; });\n/* harmony import */ var _fetchMain__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./fetchMain */ \"./src/component/fetchMain.js\");\n\n\nconst searcher = (() => {\n\tconst byLoc = (async (location) => {\n\t\ttry {\n\t\t\tconst url = `http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=ccf997c34097cddfadc5cdaead93a77a`;\n\t\t\tconst data = await Object(_fetchMain__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(url);\n\t\t\tif (data.cod === '404') {\n\t\t\t\talert(\"info not available at the moment\");\n\t\t\t\twindow.location.reload();\n\t\t\t}\n\t\t\treturn data;\n\t\t} catch (error) {\n\t\t\tthrow (error);\n\t\t}\n\t});\n\tconst byLocDefault = async () => {\n\t\ttry {\n\t\t\tlet locator = 'https://extreme-ip-lookup.com/json/';\n\t\t\tconst userData = await Object(_fetchMain__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(locator);\n\t\t\treturn userData.country;\n\t\t} catch (error) {\n\t\t\tthrow (error);\n\t\t}\n\t};\n\treturn { byLoc, byLocDefault };\n})();\n\n\n//# sourceURL=webpack:///./src/component/searches.js?");
 
 /***/ }),
 
@@ -153,7 +265,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return myWeather; });\n/* harmony import */ var _fetchmain__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./fetchmain */ \"./src/component/fetchmain.js\");\n\nconst myWeather = async () => {\n\n};\n\n\n//# sourceURL=webpack:///./src/component/weather.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(process) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return myWeather; });\n/* harmony import */ var _searches__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./searches */ \"./src/component/searches.js\");\n/* harmony import */ var _homepage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./homepage */ \"./src/component/homepage.js\");\n\n\nconst myWeather = (async () => {\n\tconst userLocation = await _searches__WEBPACK_IMPORTED_MODULE_0__[\"default\"].byLocDefault();\n\t_homepage__WEBPACK_IMPORTED_MODULE_1__[\"default\"].homepage(await _searches__WEBPACK_IMPORTED_MODULE_0__[\"default\"].byLoc(userLocation));\n\tconsole.log(process.env.APPID)\n});\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/process/browser.js */ \"./node_modules/process/browser.js\")))\n\n//# sourceURL=webpack:///./src/component/weather.js?");
 
 /***/ }),
 
@@ -165,7 +277,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _component_dom_homepage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./component/dom/homepage */ \"./src/component/dom/homepage.js\");\n/* harmony import */ var _component_weather__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./component/weather */ \"./src/component/weather.js\");\n\n\n\n\nconst main = () => {\n\tObject(_component_dom_homepage__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n\tObject(_component_weather__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\n};\n\nmain();\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _component_weather__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./component/weather */ \"./src/component/weather.js\");\n\n\n\nconst main = () => {\n\tObject(_component_weather__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n};\n\nmain();\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 

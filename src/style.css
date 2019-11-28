@@ -25,6 +25,11 @@ main{
   background: #d2cfdf;
   height: 25%;
 }
+.mainMid:hover{
+  background: #d2cfdf;
+  height: 26%;
+  box-shadow: 0px 35px 20px #777;
+}
 .mainBot{
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;

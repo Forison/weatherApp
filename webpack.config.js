@@ -1,5 +1,5 @@
 /*eslint import/no-unresolved: 2*/
-
+const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
@@ -50,5 +50,9 @@ module.exports = {
 			template: './src/index.html',
 			filename: './index.html',
 		}),
+		new Dotenv({
+			path: './.env',
+			safe: true
+		})
 	],
 };
